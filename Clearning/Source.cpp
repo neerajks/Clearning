@@ -2,8 +2,11 @@
 #define N 8
 
 //These xy compbinations define all possible moves of a Knight
-int xMove[8] = { 2, 2, 1, 1, -1, -1, -2, -2 };
-int yMove[8] = { 1, -1, 2, -2, 2, -2, -1, 1 };
+//int xMove[8] = { 2, 2, 1, 1, -1, -1, -2, -2 };
+//int yMove[8] = { 1, -1, 2, -2, 2, -2, -1, 1 };
+int xMove[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
+int yMove[8] = { 1, 2, 2, 1, -1, -2, -2, -1 };
+int counter = 0;
 
 bool isSafe(int x, int y, int sol[N][N]){
 	return (x < N && x > -1 && y < N && y > -1 && sol[x][y] == -1);
@@ -23,8 +26,6 @@ void printSln(int sol[N][N]){
 bool solveKTUtil(int x, int y, int movi, int sol[N][N]){
 	int next_x, next_y;
 	if (movi == N*N) return true;
-
-	//printSln(sol);
 
 	//Try all moves
 	for (int k = 0; k < 8; k++)
@@ -50,6 +51,7 @@ bool solveKT(){
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < N; j++)
 			sol[i][j] = -1;
+
 	int start_x = 0, start_y = 0;
 	sol[start_x][start_y] = 0;
 	if (solveKTUtil(0, 0, 1, sol) == false){
@@ -67,3 +69,4 @@ int main(){
 	solveKT();
 	return 0;
 }
+
