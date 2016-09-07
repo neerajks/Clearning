@@ -54,7 +54,7 @@ bool solveKT(){
 
 	int start_x = 0, start_y = 0;
 	sol[start_x][start_y] = 0;
-	if (solveKTUtil(0, 0, 1, sol) == false){
+	if (solveKTUtil(start_x, start_y, 1, sol) == false){
 		printf("solution does not exist!! Start Point: %2d  %2d ", start_x, start_y);
 	}
 	else
